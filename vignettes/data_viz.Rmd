@@ -1,0 +1,41 @@
+---
+title: "The ACNH Museum: Villager Hunt Visualizations"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{data_viz}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup}
+library(villagerhunt)
+```
+
+```{r}
+data(villagerhunt)
+```
+
+```{r}
+# How long do villager hunts take?
+villagerhunt %>%
+  filter(Take_or_Pass == "Take") %>%
+  ggplot(aes(x=Order))+
+  geom_density(color="darkgreen", fill="darkgreen", alpha = 0.5) +
+  xlab("Number of NMTs used") +
+  ylab(" ") +
+  ggtitle("How long do villager hunts take?")
+```
+
+```{r}
+# Most popular species?
+
+villagerhunt %>%
+  filter(Take_or_Pass == "Take") %>%
+  ggplot(aes(x=Species, fill = Species)) + 
+  geom_bar(aes(y = (..count..)/sum(..count..))) +
+  xlab("") +
+  ylab(" ") +
+  ggtitle("Most popular species?")  +
+  theme(axis.text.x=element_text(angle = 45, hjust = 1)) +
+  theme(legend.position = "none")
+```
