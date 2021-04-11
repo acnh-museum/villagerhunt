@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person(given = "Julie",
            role = c("aut", "cre"),
-           email = "plumesdecorbeau@gmail.com",
+           email = "plumesdecorbeau@gmail.com")
 Description: This package includes the villager hunt dataset from the ACNH Museum and visualization vignettes.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
@@ -16,3 +16,5 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+Import:
+	ggplot2
